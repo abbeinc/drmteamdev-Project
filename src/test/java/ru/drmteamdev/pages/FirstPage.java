@@ -10,6 +10,15 @@ public class FirstPage {
 @FindBy(xpath = "//a[text()='Зарегистрироваться']")
 public WebElement geristrationLink;
 
+@FindBy(xpath = "//a[@class='light-link header-login-link'][.='Войти']")
+public WebElement loginRightTop;
+
+    @FindBy(xpath = "//a[@class='dark-link links-blocks-item'][.='Войти']")
+    public WebElement loginCenter;
+
+
+
+
 
 static public void goToFirstPage(){
     Driver.getDriver().get(ConfigReader.read("drmteandev_url"));

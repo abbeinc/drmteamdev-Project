@@ -18,6 +18,7 @@ import java.time.Duration;
 
 public class RegistrationStepDef {
     RegistrationPage registrationPage = new RegistrationPage();
+    FirstPage firstPage = new FirstPage();
     Faker faker = new Faker();
     String password;
     String fakerEmail;
@@ -150,6 +151,8 @@ public class RegistrationStepDef {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(registrationPage.registerButton).click().perform();
     }
+
+
     @Then("user should see alert {string} message")
     public void user_should_see_alert_message(String string) {
        Assert.assertEquals(string, registrationPage.UserExistMsg.getText());
@@ -158,6 +161,29 @@ public class RegistrationStepDef {
 
     }
 
+    @Given("user at the Регистрация page")
+    public void userAtTheРегистрацияPage() {
+        FirstPage.goToFirstPage();
+    }
+    @When("user enters {string} and {string}")
+    public void userEntersAnd(String arg0, String arg1) {
+       Actions actions = new Actions(Driver.getDriver());
+       actions.moveToElement(firstPage.geristrationLink).click().perform();
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(2000));
+        wait.until(ExpectedConditions.visibilityOf(registrationPage.emailField));
+        registrationPage.emailField.sendKeys(arg0);
+        registrationPage.passwordField.sendKeys(arg1);
+        registrationPage.passwordFieldConfirmation.sendKeys(arg1);
+
+
+    }
+
+    @Then("user should see warning")
+    public void userShouldSeeWarning() {
+        Assert.assertEquals("Введён некорректный email", registrationPage.IncorrectEmailSgn.getText());
+
+    }
 
 
 }

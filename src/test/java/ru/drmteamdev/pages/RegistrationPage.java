@@ -25,6 +25,8 @@ public WebElement errorMsg;
 @FindBy(xpath = "//div[@class = 'toast']/div[@class='toast-message']")
 public WebElement UserExistMsg;
 
+@FindBy(xpath = "//div[@class=\"input-error-message\"] [.='Введён некорректный email']")
+public WebElement IncorrectEmailSgn;
     public RegistrationPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
