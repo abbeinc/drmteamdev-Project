@@ -4,9 +4,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-//This Twst Runner has only one purpose
-// to run failed scenario that stored inside rerun.txt
-// it does nothing else!
+//Now it is connected
 @RunWith(Cucumber.class)
 @CucumberOptions( glue = "ru/drmteamdev/step_definition"
                  ,features = "@target/rerun.txt" )
