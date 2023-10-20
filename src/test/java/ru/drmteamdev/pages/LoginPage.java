@@ -21,6 +21,18 @@ public WebElement warningMsg;
 @FindBy(xpath = "//div[@class='input-password']/div")
 public WebElement passwordWarning;
 
+@FindBy(xpath = "//div[.='Repass successfully started, check your email'][@class='message-text']")
+public WebElement restorePasswordMsg;
+@FindBy(xpath = "//a[.='Вспомнить пароль']")
+public WebElement restorePasswordLink;
+@FindBy(xpath = "//input[@name='email']")
+public WebElement restorePasswordInput;
+@FindBy(xpath = "//div[@class='toast']")
+public WebElement restoreNotValidEmailMsg;
+    @FindBy(xpath = "//button[.='Вспомнить']")
+    public WebElement restorePasswordButton;
+
+
 public void goToLoginPage(){
     Driver.getDriver().get("https://drmteamdev.ru/login");
 }

@@ -1,4 +1,4 @@
-@bla
+
 Feature: As a user I have to be able register on the website
 
   Scenario: After user clicked button "Зарегистрироваться" he must see page "Регистрация"
@@ -26,7 +26,7 @@ Feature: As a user I have to be able register on the website
         When user enters existing e-mail and password
         Then user should see alert "User already exist" message
 
-        @single
+
         Scenario Outline: User can't register with incorrect email
           Given user at the Регистрация page
           When user enters "<email>" and "<password>"

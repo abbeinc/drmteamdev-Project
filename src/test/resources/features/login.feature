@@ -1,4 +1,4 @@
-@bla
+
 
 Feature: User with the wrong credentials should not be able
   to login on the website

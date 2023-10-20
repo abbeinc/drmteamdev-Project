@@ -15,6 +15,8 @@ public WebElement loginRightTop;
 
     @FindBy(xpath = "//a[@class='dark-link links-blocks-item'][.='Войти']")
     public WebElement loginCenter;
+    @FindBy(xpath = "//a[text()='Вспомнить пароль']")
+    public WebElement forgotPasswordLink;
 
 
 
