@@ -7,6 +7,8 @@ import ru.drmteamdev.utility.Driver;
 
 public class RegistrationPage {
 
+  @FindBy(xpath = "//div[contains(.,'Регистрация')][@class='register-form-title']")
+    public WebElement signRegistration;
 @FindBy(xpath = "//div[@class='input-email']/input")
 public WebElement emailField;
 

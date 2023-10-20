@@ -18,8 +18,8 @@ public class LoginPage {
 @FindBy(xpath = "//div[@class='toast-message']")
 public WebElement warningMsg;
 
-@FindBy(xpath = "//div[@class='input-error-message'][.='Пароль не может быть пустым']")
-public WebElement PasswordWarning;
+@FindBy(xpath = "//div[@class='input-password']/div")
+public WebElement passwordWarning;
 
 public void goToLoginPage(){
     Driver.getDriver().get("https://drmteamdev.ru/login");

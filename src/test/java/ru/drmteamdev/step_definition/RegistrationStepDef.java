@@ -1,6 +1,7 @@
 package ru.drmteamdev.step_definition;
 
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +23,7 @@ public class RegistrationStepDef {
     Faker faker = new Faker();
     String password;
     String fakerEmail;
-
+    Actions actions = new Actions(Driver.getDriver());
 
 
 
@@ -77,9 +78,9 @@ public class RegistrationStepDef {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofMillis(2000));
         wait.until(ExpectedConditions.visibilityOf(registrationPage.registerButton));
         registrationPage.registerButton.submit();
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(registrationPage.registerButton).click().perform();
 
+        actions.moveToElement(registrationPage.registerButton).click().perform();
+        actions.pause(3000).perform();
     }
     @Then("user should see {string}")
     public void user_should_see(String string) throws InterruptedException {
@@ -186,4 +187,19 @@ public class RegistrationStepDef {
     }
 
 
+    @And("{int} char. password and repeat password")
+    public void charPasswordAndRepeatPassword(int num) {
+      password = faker.number().digits(num)+faker.chuckNorris().fact();
+      registrationPage.passwordField.sendKeys(password);
+      registrationPage.passwordFieldConfirmation.sendKeys(password);
+
+    }
+
+
+
+    @Then("user should see registration page")
+    public void userShouldSeeRegistrationPage() {
+        actions.pause(2000).perform();
+    Assert.assertTrue(registrationPage.signRegistration.isDisplayed());
+    }
 }

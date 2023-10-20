@@ -40,3 +40,11 @@ Feature: As a user I have to be able register on the website
             | aaaa@.ru           | 12345    |
             | кирилица@yandex.ru | 12345    |
             | bbb@.ru            | 12345    |
+
+
+  Scenario: user can't register if enters correct email and password more than 50 characters
+    Given user at the "Регистрация" page2
+    When user enters e-mail
+    And 1000 char. password and repeat password
+    And click "Зарегистрироваться"
+    Then user should see registration page

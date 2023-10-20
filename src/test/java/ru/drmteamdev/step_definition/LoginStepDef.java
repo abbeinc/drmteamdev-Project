@@ -60,7 +60,7 @@ public class LoginStepDef {
 
     @Then("user will see {string}")
     public void userWillSee(String str) {
-        Assert.assertEquals(str, login.PasswordWarning.getText());
+        Assert.assertEquals(str, login.passwordWarning.getText());
     }
 
     @Given("user on the login page")
@@ -69,8 +69,8 @@ public class LoginStepDef {
     }
     @When("user enters confirmed email and valid password")
     public void user_enters_confirmed_email_and_valid_password() {
-       login.emailBox.sendKeys(ConfigReader.read("email"));
-        login.passwordBox.sendKeys(ConfigReader.read("password"));
+       login.emailBox.sendKeys(ConfigReader.read("volunteerEmail"));
+        login.passwordBox.sendKeys(ConfigReader.read("volunteerEmailPassword"));
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(3000));
         wait.until(ExpectedConditions.elementToBeClickable(login.buttonEnter));
         Actions actions = new Actions(Driver.getDriver());
@@ -88,8 +88,8 @@ public class LoginStepDef {
     @Given("user on the task page")
     public void user_on_the_task_page() {
         login.goToLoginPage();
-        login.emailBox.sendKeys(ConfigReader.read("email"));
-        login.passwordBox.sendKeys(ConfigReader.read("password"));
+        login.emailBox.sendKeys(ConfigReader.read("volunteerEmail"));
+        login.passwordBox.sendKeys(ConfigReader.read("volunteerEmailPassword"));
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(3000));
         wait.until(ExpectedConditions.elementToBeClickable(login.buttonEnter));
         Actions actions = new Actions(Driver.getDriver());
@@ -115,4 +115,44 @@ public class LoginStepDef {
 
 
 
+
+    @When("user as an admin enters confirmed email and valid password")
+    public void userAsAnAdminEntersConfirmedEmailAndValidPassword() {
+        login.goToLoginPage();
+        login.emailBox.sendKeys(ConfigReader.read("adminEmail"));
+        login.passwordBox.sendKeys(ConfigReader.read("adminEmailPassword"));
+        wait.until(ExpectedConditions.elementToBeClickable(login.buttonEnter));
+        actions.moveToElement(login.buttonEnter).click().perform();
+        wait.until(ExpectedConditions.elementToBeClickable(taskPage.taskPageSgn));
+
+        Assert.assertEquals("Задачи", Driver.getDriver().getTitle());
+    }
+
+
+    @When("user as an admin enters confirmed email and invalid {string}")
+    public void userAsAnAdminEntersConfirmedEmailAndInvalid(String password) {
+
+        login.emailBox.sendKeys(ConfigReader.read("adminEmail"));
+        login.passwordBox.sendKeys(password);
+        wait.until(ExpectedConditions.elementToBeClickable(login.buttonEnter));
+        actions.moveToElement(login.buttonEnter).click().perform();
+
+    }
+    @Then("user should see warning sign Password not correct")
+    public void userShouldSeeWarningSignPasswordNotCorrect() {
+
+        Assert.assertTrue(login.passwordWarning.isDisplayed()||login.warningMsg.isDisplayed());
+
+    }
+
+    @When("user as a volunteer enters confirmed email and invalid {string}")
+    public void userAsAVolunteerEntersConfirmedEmailAndInvalid(String password) {
+
+        login.emailBox.sendKeys(ConfigReader.read("volunteerEmail"));
+        login.passwordBox.sendKeys(password);
+        wait.until(ExpectedConditions.elementToBeClickable(login.buttonEnter));
+        actions.moveToElement(login.buttonEnter).click().perform();
+
+
+    }
 }
