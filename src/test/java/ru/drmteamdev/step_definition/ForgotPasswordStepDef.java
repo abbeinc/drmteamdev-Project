@@ -31,10 +31,12 @@ public class ForgotPasswordStepDef {
         FirstPage.goToFirstPage();
         firstPage.loginCenter.click();
     }
+
     @When("user click Вспомнить пароль")
     public void user_click_вспомнить_пароль() {
         login.restorePasswordLink.click();
     }
+
     @And("enters his valid {string} and click Вспомнить")
     public void entersHisValidAndClickВспомнить(String email) throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(login.restorePasswordInput));
@@ -46,15 +48,15 @@ public class ForgotPasswordStepDef {
 
     @Then("user should see the message Repass successfully started")
     public void user_should_see_the_message_repass_successfully_started() {
-          wait.until(ExpectedConditions.visibilityOf(login.restorePasswordMsg));
-            Assert.assertTrue(login.restorePasswordMsg.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOf(login.restorePasswordMsg));
+        Assert.assertTrue(login.restorePasswordMsg.isDisplayed());
     }
 
 
     @And("enters his valid  not registered email and click Вспомнить")
     public void entersHisValidNotRegisteredEmailAndClickВспомнить() {
         wait.until(ExpectedConditions.visibilityOf(login.restorePasswordInput));
-        actions.sendKeys(login.restorePasswordInput, faker.name().firstName()+"@yandex.ru").perform();
+        actions.sendKeys(login.restorePasswordInput, faker.name().firstName() + "@yandex.ru").perform();
         actions.sendKeys(Keys.ESCAPE).perform();
         actions.moveToElement(login.restorePasswordButton).pause(1000).click().perform();
     }

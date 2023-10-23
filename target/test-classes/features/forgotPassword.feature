@@ -12,7 +12,7 @@ Feature: If user forgot password he should be able to change it through his emai
       | email                    |
       | volunteer@fake-email.com |
       | admin@fake-email.com     |
-      | abbeinc@gmail.com        |
+
 
     Scenario: not registered user can't use Вспомнть пароль function
       When user click Вспомнить пароль

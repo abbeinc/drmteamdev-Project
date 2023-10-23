@@ -13,14 +13,9 @@ import org.junit.runner.RunWith;
                             , "rerun:target/rerun.txt"//
                             }
                             ,dryRun = false
-
-
-
            //     ,tags="@single"
             ,tags="@bla"
               //,tags="@smoke"  //
-
-
             )
 
 public class TestRunner {

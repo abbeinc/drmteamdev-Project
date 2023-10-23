@@ -1,4 +1,4 @@
-
+@bla
 Feature: As a user I have to be able register on the website
 
   Scenario: After user clicked button "Зарегистрироваться" he must see page "Регистрация"

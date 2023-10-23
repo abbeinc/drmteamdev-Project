@@ -47,8 +47,6 @@ public class LoginStepDef {
         wait.until(ExpectedConditions.visibilityOfAllElements(login.warningMsg));
         Assert.assertEquals("This user is not registered yet", login.warningMsg.getText());
     }
-
-
     @When("user enters just unregistered email")
     public void user_enters_just_unregistered_email() {
         firstPage.loginRightTop.click();
@@ -56,13 +54,10 @@ public class LoginStepDef {
         login.emailBox.sendKeys(faker.name().firstName()+"@yandex.ru");
         login.buttonEnter.submit();
     }
-
-
     @Then("user will see {string}")
     public void userWillSee(String str) {
         Assert.assertEquals(str, login.passwordWarning.getText());
     }
-
     @Given("user on the login page")
     public void user_on_the_login_page() {
        login.goToLoginPage();
@@ -112,10 +107,6 @@ public class LoginStepDef {
      wait.until(ExpectedConditions.visibilityOf(login.emailBox));
        Assert.assertEquals("Вход", Driver.getDriver().getTitle());
     }
-
-
-
-
     @When("user as an admin enters confirmed email and valid password")
     public void userAsAnAdminEntersConfirmedEmailAndValidPassword() {
         login.goToLoginPage();
@@ -127,8 +118,6 @@ public class LoginStepDef {
 
         Assert.assertEquals("Задачи", Driver.getDriver().getTitle());
     }
-
-
     @When("user as an admin enters confirmed email and invalid {string}")
     public void userAsAnAdminEntersConfirmedEmailAndInvalid(String password) {
 
@@ -144,7 +133,6 @@ public class LoginStepDef {
         Assert.assertTrue(login.passwordWarning.isDisplayed()||login.warningMsg.isDisplayed());
 
     }
-
     @When("user as a volunteer enters confirmed email and invalid {string}")
     public void userAsAVolunteerEntersConfirmedEmailAndInvalid(String password) {
 
