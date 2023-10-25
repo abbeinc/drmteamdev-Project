@@ -1,0 +1,13 @@
+ru\drmteamdev\runner\TestRunner.class
+ru\drmteamdev\utility\ConfigReader.class
+ru\drmteamdev\pages\UserCreatedPage.class
+ru\drmteamdev\step_definition\LoginStepDef.class
+ru\drmteamdev\step_definition\Hooks.class
+ru\drmteamdev\pages\TaskPage.class
+ru\drmteamdev\pages\RegistrationPage.class
+ru\drmteamdev\step_definition\RegistrationStepDef.class
+ru\drmteamdev\pages\FirstPage.class
+ru\drmteamdev\utility\Driver.class
+ru\drmteamdev\step_definition\ForgotPasswordStepDef.class
+ru\drmteamdev\pages\LoginPage.class
+ru\drmteamdev\runner\FailedTestRunner.class

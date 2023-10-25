@@ -20,7 +20,7 @@ Feature: User with the wrong credentials should not be able
 
   Scenario: User as a volunteer have to be able to logout
     Given user on the task page
-    When if user click "Выйти"
+    When if user click Выйти
     Then user should see login page
 
 
@@ -32,7 +32,7 @@ Feature: User with the wrong credentials should not be able
   Scenario: User as an admin have to be able to logout
     Given user on the login page
     When user as an admin enters confirmed email and valid password
-    And if user click "Выйти"
+    And if user click Выйти
     Then user should see login page
 
 
