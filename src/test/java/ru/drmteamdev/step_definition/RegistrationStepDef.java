@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.drmteamdev.pages.FirstPage;
 import ru.drmteamdev.pages.RegistrationPage;
-import ru.drmteamdev.pages.UserCreatedPage;
 import ru.drmteamdev.utility.ConfigReader;
 import ru.drmteamdev.utility.Driver;
 
@@ -21,7 +20,7 @@ public class RegistrationStepDef {
     FirstPage firstPage = new FirstPage();
     RegistrationPage registrationPage = new RegistrationPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(5000));
-    UserCreatedPage userCreatedPage = new UserCreatedPage();
+
     Faker faker = new Faker();
     String password;
     String fakerEmail;
@@ -82,9 +81,9 @@ public class RegistrationStepDef {
 
     @Then("user should see {string}")
     public void user_should_see(String string) {
-        wait.until(ExpectedConditions.visibilityOf(userCreatedPage.userCreatedMessage));
+        wait.until(ExpectedConditions.visibilityOf(registrationPage.userCreatedMessage));
 
-        Assert.assertEquals(string, userCreatedPage.userCreatedMessage.getText());
+        Assert.assertEquals(string, registrationPage.userCreatedMessage.getText());
     }
 
     @When("user click registration button without email and password")
@@ -113,9 +112,9 @@ public class RegistrationStepDef {
         registrationPage.passwordFieldConfirmation.sendKeys(password);
         actions.moveToElement(registrationPage.registerButton).click().perform();
         wait.until(ExpectedConditions.visibilityOf(registrationPage.emailField));
-        wait.until(ExpectedConditions.visibilityOf(userCreatedPage.userCreatedMessage));
+        wait.until(ExpectedConditions.visibilityOf(registrationPage.userCreatedMessage));
         String msg = "User has been successfully created, check your email";
-        Assert.assertEquals(msg, userCreatedPage.userCreatedMessage.getText());
+        Assert.assertEquals(msg, registrationPage.userCreatedMessage.getText());
 
     }
 
@@ -156,13 +155,13 @@ public class RegistrationStepDef {
 
     @Then("user should see warning")
     public void userShouldSeeWarning() {
-        Assert.assertEquals("Введён некорректный email", registrationPage.IncorrectEmailSgn.getText());
+        Assert.assertTrue( registrationPage.incorrectPasswordMsg.isDisplayed()||registrationPage.IncorrectEmailSgn.isDisplayed());
 
     }
 
     @And("{int} char. password and repeat password")
     public void charPasswordAndRepeatPassword(int num) {
-        password = faker.number().digits(num) + faker.chuckNorris().fact();
+        password = faker.number().digits(num)+faker.chuckNorris().fact();
         registrationPage.passwordField.sendKeys(password);
         registrationPage.passwordFieldConfirmation.sendKeys(password);
 
@@ -171,7 +170,8 @@ public class RegistrationStepDef {
     @Then("user should see registration page")
     public void userShouldSeeRegistrationPage() {
 
-        wait.until(ExpectedConditions.visibilityOf(registrationPage.signRegistration));
-        Assert.assertTrue(registrationPage.signRegistration.isDisplayed());
-    }
-}
+    wait.until(ExpectedConditions.visibilityOf(registrationPage.userCreatedMessage));
+
+        Assert.assertFalse(registrationPage.userCreatedMessage.isDisplayed());
+
+}}

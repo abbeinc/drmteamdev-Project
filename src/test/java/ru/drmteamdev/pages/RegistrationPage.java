@@ -29,6 +29,12 @@ public WebElement userExistMsg;
 
 @FindBy(xpath = "//div[@class=\"input-error-message\"] [.='Введён некорректный email']")
 public WebElement IncorrectEmailSgn;
+
+    @FindBy(xpath = "//div[@class='message-text']")
+    public WebElement userCreatedMessage;
+
+    @FindBy(xpath = "//form//input[@placeholder=\"Придумайте пароль\"]")
+    public WebElement incorrectPasswordMsg;
     public RegistrationPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }

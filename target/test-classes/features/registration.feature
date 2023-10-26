@@ -39,7 +39,11 @@ Feature: As a user I have to be able register on the website
       | aaaa@.ru           | 12256784  |
       | кирилица@yandex.ru | 123452464 |
       | bbb@.ru            | 123454562 |
-
+      | sdjl@@.yan.ru      | sobniwewe |
+      | seiu@доп.ru        | owncn093  |
+      | @sldvos@ldfls.ru   | 23456     |
+      | sdfghj@sdfghj      |2344       |
+      |aaa@sdf.ru          |ыдвоа      |
 
   Scenario: user can't register if enters correct email and password more than 50 characters
     Given user at the "Регистрация" page2

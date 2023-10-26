@@ -38,11 +38,11 @@ public class ForgotPasswordStepDef {
     }
 
     @And("enters his valid {string} and click Вспомнить")
-    public void entersHisValidAndClickВспомнить(String email) throws InterruptedException {
+    public void entersHisValidAndClickВспомнить(String email)  {
         wait.until(ExpectedConditions.visibilityOf(login.restorePasswordInput));
-        actions.sendKeys(login.restorePasswordInput, email).perform();
-        actions.sendKeys(Keys.ESCAPE).perform();
-        actions.moveToElement(login.restorePasswordButton).pause(1000).click().perform();
+        actions.sendKeys(login.restorePasswordInput,email).perform();
+        actions.click(login.textVspomnitParol).perform();
+        actions.moveToElement(login.restorePasswordButton).click().perform();
 
     }
 

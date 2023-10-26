@@ -1,10 +1,8 @@
 ru\drmteamdev\runner\TestRunner.class
 ru\drmteamdev\utility\ConfigReader.class
-ru\drmteamdev\pages\UserCreatedPage.class
 ru\drmteamdev\step_definition\LoginStepDef.class
 ru\drmteamdev\step_definition\Hooks.class
 ru\drmteamdev\pages\TaskPage.class
-ru\drmteamdev\pages\SelFirst.class
 ru\drmteamdev\pages\RegistrationPage.class
 ru\drmteamdev\step_definition\RegistrationStepDef.class
 ru\drmteamdev\pages\FirstPage.class

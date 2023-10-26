@@ -29,6 +29,7 @@ public class Hooks {
         }
 
         Driver.closeBrowser();
+        Driver.closeBrowser();
 
     }
 

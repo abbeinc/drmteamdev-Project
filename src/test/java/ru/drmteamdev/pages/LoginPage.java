@@ -6,7 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import ru.drmteamdev.utility.Driver;
 
 public class LoginPage {
-
+@FindBy(xpath = "//div[.='Вспомнить пароль']")
+public WebElement textVspomnitParol;
 @FindBy(xpath = "//input[@placeholder='E-mail']")
         public WebElement emailBox;
 @FindBy(xpath = "//input[@type='password']")
