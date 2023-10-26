@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: As a user I have to be able register on the website
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 128.846 s <<< FAILURE! - in As a user I have to be able register on the website
-As a user I have to be able register on the website.user can't register if enters correct email and password more than 50 characters  Time elapsed: 25.444 s  <<< ERROR!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(.,'Регистрация')][@class='register-form-title']' (tried for 5 second(s) with 500 milliseconds interval)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-Unable to locate element: //div[contains(.,'Регистрация')][@class='register-form-title']
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.8.1', revision: '8ebccac989'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [5d12f997-f111-4b75-abd9-a4cf9ee6f22a, findElement {using=xpath, value=//div[contains(.,'Регистрация')][@class='register-form-title']}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 118.0.2, moz:accessibilityChecks: false, moz:buildID: 20231009140911, moz:debuggerAddress: 127.0.0.1:2065, moz:geckodriverVersion: 0.33.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 14112, moz:profile: C:\Users\USER\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://127.0.0.1:2065/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 5d12f997-f111-4b75-abd9-a4cf9ee6f22a
-
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.864 s - in As a user I have to be able register on the website

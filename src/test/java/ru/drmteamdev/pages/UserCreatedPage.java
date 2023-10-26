@@ -8,7 +8,7 @@ import ru.drmteamdev.utility.Driver;
 public class UserCreatedPage {
 
     @FindBy(xpath = "//div[@class='message-text']")
-    public WebElement UserCreatedMessage;
+    public WebElement userCreatedMessage;
 
 public UserCreatedPage(){
     PageFactory.initElements(Driver.getDriver(), this);

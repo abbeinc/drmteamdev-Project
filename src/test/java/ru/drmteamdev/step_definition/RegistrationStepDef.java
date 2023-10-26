@@ -77,13 +77,14 @@ public class RegistrationStepDef {
         wait.until(ExpectedConditions.visibilityOf(registrationPage.registerButton));
         registrationPage.registerButton.submit();
         actions.moveToElement(registrationPage.registerButton).click().perform();
-        actions.pause(3000).perform();
+
     }
 
     @Then("user should see {string}")
     public void user_should_see(String string) {
+        wait.until(ExpectedConditions.visibilityOf(userCreatedPage.userCreatedMessage));
 
-        Assert.assertEquals(string, userCreatedPage.UserCreatedMessage.getText());
+        Assert.assertEquals(string, userCreatedPage.userCreatedMessage.getText());
     }
 
     @When("user click registration button without email and password")
@@ -112,9 +113,9 @@ public class RegistrationStepDef {
         registrationPage.passwordFieldConfirmation.sendKeys(password);
         actions.moveToElement(registrationPage.registerButton).click().perform();
         wait.until(ExpectedConditions.visibilityOf(registrationPage.emailField));
-        wait.until(ExpectedConditions.visibilityOf(userCreatedPage.UserCreatedMessage));
+        wait.until(ExpectedConditions.visibilityOf(userCreatedPage.userCreatedMessage));
         String msg = "User has been successfully created, check your email";
-        Assert.assertEquals(msg, userCreatedPage.UserCreatedMessage.getText());
+        Assert.assertEquals(msg, userCreatedPage.userCreatedMessage.getText());
 
     }
 
@@ -133,7 +134,8 @@ public class RegistrationStepDef {
 
     @Then("user should see alert {string} message")
     public void user_should_see_alert_message(String string) {
-        Assert.assertEquals(string, registrationPage.UserExistMsg.getText());
+      wait.until(ExpectedConditions.visibilityOf(registrationPage.userExistMsg));
+        Assert.assertEquals(string, registrationPage.userExistMsg.getText());
 
 
     }
@@ -168,7 +170,7 @@ public class RegistrationStepDef {
 
     @Then("user should see registration page")
     public void userShouldSeeRegistrationPage() {
-        actions.pause(3000).perform();
+
         wait.until(ExpectedConditions.visibilityOf(registrationPage.signRegistration));
         Assert.assertTrue(registrationPage.signRegistration.isDisplayed());
     }

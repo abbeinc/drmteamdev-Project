@@ -25,7 +25,7 @@ public WebElement registerButton;
 public WebElement errorMsg;
 
 @FindBy(xpath = "//div[@class = 'toast']/div[@class='toast-message']")
-public WebElement UserExistMsg;
+public WebElement userExistMsg;
 
 @FindBy(xpath = "//div[@class=\"input-error-message\"] [.='Введён некорректный email']")
 public WebElement IncorrectEmailSgn;
