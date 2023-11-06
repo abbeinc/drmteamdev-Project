@@ -28,7 +28,7 @@ public WebElement errorMsg;
 public WebElement userExistMsg;
 
 @FindBy(xpath = "//div[@class=\"input-error-message\"] [.='Введён некорректный email']")
-public WebElement IncorrectEmailSgn;
+public WebElement incorrectEmailSgn;
 
     @FindBy(xpath = "//div[@class='message-text']")
     public WebElement userCreatedMessage;

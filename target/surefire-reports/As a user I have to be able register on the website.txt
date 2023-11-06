@@ -1,17 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: As a user I have to be able register on the website
 -------------------------------------------------------------------------------
-Tests run: 15, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 109.213 s <<< FAILURE! - in As a user I have to be able register on the website
-As a user I have to be able register on the website.user can't register if enters correct email and password more than 50 characters  Time elapsed: 13.611 s  <<< ERROR!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (0563e3e255f6952a4927524d5fb521d0)] -> xpath: //div[@class='message-text']] (tried for 5 second(s) with 500 milliseconds interval)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='message-text']"}
-  (Session info: chrome=118.0.5993.118)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.8.1', revision: '8ebccac989'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0563e3e255f6952a4927524d5fb521d0, findElement {using=xpath, value=//div[@class='message-text']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.118, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\USER\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57655}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:57655/devtoo..., se:cdpVersion: 118.0.5993.118, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0563e3e255f6952a4927524d5fb521d0
+Tests run: 15, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 44.218 s <<< FAILURE! - in As a user I have to be able register on the website
+As a user I have to be able register on the website.user can't register if enters correct email and password more than 50 characters  Time elapsed: 9.365 s  <<< FAILURE!
+java.lang.AssertionError
 

@@ -14,13 +14,13 @@ import ru.drmteamdev.utility.Driver;
 import java.time.Duration;
 
 public class Hooks {
-    @Before("@bla")
+    @Before("@smoke")
     public void setupDriver() {
     Driver.getDriver().manage().window().maximize();
    //  Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
 
     }
-    @After("@bla")
+    @After("@smoke")
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();

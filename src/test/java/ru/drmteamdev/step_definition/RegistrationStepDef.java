@@ -155,7 +155,7 @@ public class RegistrationStepDef {
 
     @Then("user should see warning")
     public void userShouldSeeWarning() {
-        Assert.assertTrue( registrationPage.incorrectPasswordMsg.isDisplayed()||registrationPage.IncorrectEmailSgn.isDisplayed());
+        Assert.assertTrue( registrationPage.incorrectPasswordMsg.isDisplayed()||registrationPage.incorrectEmailSgn.isDisplayed());
 
     }
 

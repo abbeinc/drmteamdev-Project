@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,15 +26,19 @@ public class ForgotPasswordStepDef {
     Actions actions = new Actions(Driver.getDriver());
     TaskPage taskPage = new TaskPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofMillis(5000));
-
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
     @Given("user at the login page")
     public void user_at_the_login_page() {
         FirstPage.goToFirstPage();
-        firstPage.loginCenter.click();
+     //  actions.keyDown(Keys.CONTROL).sendKeys("-").pause(1000).keyUp(Keys.CONTROL).perform();
+    js.executeScript("document.body.style.transform = 'scale(0.1)';");
+      actions.pause(3000).perform();
+       firstPage.loginCenter.click();
     }
 
     @When("user click Вспомнить пароль")
     public void user_click_вспомнить_пароль() {
+
         login.restorePasswordLink.click();
     }
 

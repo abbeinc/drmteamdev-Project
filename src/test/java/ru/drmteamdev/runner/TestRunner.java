@@ -15,8 +15,8 @@ import org.junit.runner.RunWith;
                             ,dryRun = false
 
            //     ,tags="@single"
-            ,tags="@bla"
-              //,tags="@smoke"  //
+          //  ,tags="@bla"
+        ,tags="@smoke"  //
             )
 
 public class TestRunner {

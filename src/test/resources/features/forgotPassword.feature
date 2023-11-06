@@ -1,4 +1,4 @@
-@bla
+@smoke
 Feature: If user forgot password he should be able to change it through his email
 
   Background:
